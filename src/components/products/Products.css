@@ -1,0 +1,43 @@
+.products {
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+.products__table-wrapper {
+  overflow-x: auto;
+}
+
+.products__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.products__table th,
+.products__table td {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.products__table th {
+  background: #f3f4f6;
+}
+
+.products__pagination {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.products__pagination button {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+}
+
+.products__pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
