@@ -1,12 +1,20 @@
-import { useState } from 'react';
 import { productsList } from '.';
 import Pagination from '../pagination/Pagination';
 import './Products.css';
 
-export default function Products() {
-  const productsPerPage = 10;
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(productsList.length / productsPerPage);
+export interface ProductsProps {
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+  productsPerPage?: number;
+}
+
+export default function Products({
+  totalPages,
+  currentPage,
+  onPageChange,
+  productsPerPage = 10,
+}: ProductsProps) {
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = productsList.slice(
     startIndex,
@@ -38,7 +46,7 @@ export default function Products() {
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
-        onPageChange={setCurrentPage}
+        onPageChange={onPageChange}
       />
     </>
   );
