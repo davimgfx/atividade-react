@@ -28,8 +28,6 @@ export default function Tabs({ tabs }: TabsProps) {
       <div className="tabs__list" role="tablist" aria-label="Abas">
         {tabs.map((tab, index) => {
           const isActive = tab.id === activeTab.id;
-          const tabId = `${tabsId}-tab-${index}`;
-          const panelId = `${tabsId}-panel-${index}`;
 
           return (
             <button
@@ -40,11 +38,8 @@ export default function Tabs({ tabs }: TabsProps) {
               className={`tabs__button${
                 isActive ? ' tabs__button--active' : ''
               }`}
-              id={tabId}
               type="button"
               role="tab"
-              aria-selected={isActive}
-              aria-controls={panelId}
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActiveTabId(tab.id)}>
               {tab.title}
@@ -56,7 +51,6 @@ export default function Tabs({ tabs }: TabsProps) {
         className="tabs__panel"
         id={`${tabsId}-panel-${activeIndex}`}
         role="tabpanel"
-        aria-labelledby={`${tabsId}-tab-${activeIndex}`}
         tabIndex={0}>
         {activeTab.content}
       </div>
